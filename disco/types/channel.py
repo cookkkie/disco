@@ -162,12 +162,12 @@ class Channel(SlottedModel, Permissible):
         ow_everyone = self.overwrites.get(self.guild_id)
         if ow_everyone:
             base += ow_everyone.compiled
-        
+
         for role_id in member.roles:
             ow_role = self.overwrites.get(role_id)
             if ow_role:
                 base += ow_role.compiled
-        
+
         ow_member = self.overwrites.get(member.user.id)
         if ow_member:
             base += ow_member.compiled
